@@ -33,3 +33,12 @@ app.post('/submit', (req, res) => {
 app.listen(3030, () => {
   console.log('Server running on http://localhost:3030');
 });
+
+
+app.get('/solution', (req, res) => {
+  console.log('--- Addition Request Received ---');
+  let num1 = parseInt(req.query['variable1'])
+  let num2 = parseInt(req.query['variable2'])
+  let total = num1+num2
+  res.send(`<h2>${num1} + ${num2} = ${total} </h2>`)
+});
