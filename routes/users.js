@@ -3,6 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res)=>{      //  /user
     res.send('User List');
+    //res.render
 });
 
 router.get('/new', (req, res)=>{   //  /user/new
@@ -18,6 +19,12 @@ router.route('/:id').get((req, res)=>{
 res.send(`Deleting User data for id: ${req.params.id}`);
 }).put((req, res)=>{
 res.send(`Updating User data for id: ${req.params.id}`);
+});
+
+const user = [{firstName: "Rushil"}, {firstName: "Bob"}];
+router.param("id", (req, res, next, id) =>{
+    req.user = user[id];
+    next();
 });
 
 module.exports = router;
