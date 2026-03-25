@@ -20,8 +20,9 @@ router.post("/", (req,res)=>{
         //increase score++
     }
     let total = totalQuestions+1;
-    //get another set of words
-    //send that set of words back with the user 
+    //get another set of words?
+    //send that set of words back with the user score and their
+    //send some other data back?
 });
 
 
