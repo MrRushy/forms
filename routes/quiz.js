@@ -12,7 +12,18 @@ router.get("/",async (req, res)=>{
 
 router.post("/", (req,res)=>{
     console.log(req.body);
+    let {userChoice, correctDef, totalQuestions, totalCorrect}= req.body;
+    if(userChoice === correctDef)
+    {
+        console.log("Correct!")
+        let score = totalCorrect+1;
+        //increase score++
+    }
+    let total = totalQuestions+1;
+    //get another set of words
+    //send that set of words back with the user 
 });
+
 
 let getWords = async ()=>{
                                                                         //get a random part of speech
