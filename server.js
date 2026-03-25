@@ -13,6 +13,7 @@ app.use('/users', userRouter);
 app.use('/quiz', quizRouter);
 
 
+
 // GET /submit - logs query parameters
 app.get('/submit', (req, res) => {
   console.log('--- GET Request Received ---');
