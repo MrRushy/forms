@@ -7,15 +7,17 @@ router.route('/').get((req, res)=>{      //  /user
 }).post((req, res)=>{
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const isValid = firstName !=="" && lastName !=="";
+    const age = req.body.age;
+    const gender = req.body.gender;
+    const isValid = firstName !=="" && lastName !=="" && age !=="" && gender!=="" ;
     if(isValid){
-        console.log(`Adding user: ${firstName},${lastName}`)
-        users.push({firstName},{lastName});
+        console.log(`Adding user: ${firstName} ${lastName} ${age} ${gender}`)
+        users.push({firstName , lastName, age , gender});
         res.render('users/list', {users});
     }
     else{
         console.log("Error adding user");
-        res.send('users/new', {firstName:firstName}, {lastName:lastName});
+        res.send('users/new', {firstName:firstName}, {lastName:lastName}, {age: age}, {gender:gender});
     }
 });
 
@@ -25,7 +27,7 @@ router.get('/list',(req,res)=>{
 });
 
 router.get('/new', (req, res)=>{   //  /user/new
-   res.render('users/new',{firstName:"Test"})
+   res.render('users/new',{firstName:"Test", lastName:"Test", age:"0",gender:"Unknown"})
 });
 //router.get('/:id', (req, res)=>{
    // res.send(`Getting User Data: ${req.params.id}`)
