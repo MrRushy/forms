@@ -11,7 +11,15 @@
     <% 
         let users = locals.users;
         for (user of users){ %>
-            <li><%= user.firstName %></li>
+            <li>
+                <%= user.firstName %>
+                , 
+                <%= user.lastName %>
+                ,
+                <%= user.age %>
+                ,
+                <%= user.gender %>  
+            </li>
             
     <% } %>
     </ul>
