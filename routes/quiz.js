@@ -10,19 +10,22 @@ router.get("/",async (req, res)=>{
     res.render('quiz', {chosenWords});
 });
 
-router.post("/", (req,res)=>{
+router.post("/", async (req,res)=>{
     console.log(req.body);
-    let {userChoice, correctDef, totalQuestions, totalCorrect}= req.body;
+    let{userChoice, correctDef, totalQuestions, totalCorrect}= req.body;
+    let score = Number(totalCorrect);
     if(userChoice === correctDef)
     {
         console.log("Correct!")
-        let score = totalCorrect+1;
+         score += 1;
         //increase score++
     }
-    let total = totalQuestions+1;
+    let total = Number(totalQuestions) + 1;
+    let chosenWords = await getWords();
     //get another set of words?
     //send that set of words back with the user score and their
     //send some other data back?
+    res.render('quiz',{chosenWords, totalQuestions : total,totalCorrect : score});
 });
 
 
