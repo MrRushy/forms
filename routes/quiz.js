@@ -21,11 +21,13 @@ router.post("/", async (req,res)=>{
         //increase score++
     }
     let total = Number(totalQuestions) + 1;
+    let correctAnswer = (correctDef);
+    let userAnswer = (userChoice);
     let chosenWords = await getWords();
     //get another set of words?
     //send that set of words back with the user score and their
     //send some other data back?
-    res.render('quiz',{chosenWords, totalQuestions : total,totalCorrect : score});
+    res.render('quiz',{chosenWords, totalQuestions : total,totalCorrect : score, correctDef:correctAnswer, userChoice: userAnswer});
 });
 
 

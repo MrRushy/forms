@@ -9,6 +9,8 @@
     <% 
         let questionCount = locals.totalQuestions ?? 0;
         let score = locals.totalCorrect ?? 0;
+        let userAnswer = locals.userChoice ;
+        let correctAnswer = locals.correctDef ;
         let randomIndex = parseInt(Math.random()*chosenWords.length);  //generate a random index
         let chosenWord = chosenWords[randomIndex];//pick that as our correct word
         let [correctWord, correctPart, correctDef]= chosenWord.split('\t')// breaking it up into three parts
@@ -19,6 +21,9 @@
             <h1>Welcome to the word Quiz!</h1>
     <% } else { %>
             <h1>Score: <%= score %>/ <%= questionCount %></h1>
+            <% if (userAnswer == correctAnswer) { %>
+                <h2> Correct </h2>
+                 <% } %>
         <% } %>
     <!-- Show the word and part of speech -->
     <h2><%= correctWord %> - <%= correctPart %></h2> 
