@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+  <style>
+    .correct { color: green; }
+    .incorrect { color: red; }
+    .def{ color:yellow; }
+  </style>
 <body>
     <% 
         let questionCount = locals.totalQuestions ?? 0;
@@ -21,14 +26,18 @@
             <h1>Welcome to the word Quiz!</h1>
     <% } else { %>
             <h1>Score: <%= score %>/ <%= questionCount %></h1>
+           
             <% if (userAnswer == correctAnswer) { %>    
-                <h3 style="color: green;"> Correct! </h3>     
+                <h3 class="correct"> Correct! </h3>     
+               
                 <% }else{ %>
-                <h3 style="color: red;"> Wrong! </h3>
+                <h3 class="incorrect"> Wrong! </h3>
+                
                 <h3> The correct definition is :
-                     <h4 style="color: yellow;"><%=correctAnswer%></h4>
+                     <h4 class="def"><%=correctAnswer%></h4>
                 </h3>
-                    <%}%>
+                  
+                <%}%>
         <% } %>
     <!-- Show the word and part of speech -->
     <h2><%= correctWord %> - <%= correctPart %></h2> 
